@@ -33,7 +33,6 @@ struct EmployeeListRequest: AnyRequest {
 }
 
 class EmployeesNetworkService: NetworkService {
- 
     func fetch<R>(_ request: R) async throws -> R.Model where R : AnyRequest {
         guard let url = URL(string: request.url) else {
             throw NetworkError.invalidUrl

@@ -13,7 +13,7 @@ struct EmployeeList: Decodable {
 
 struct Employee: Decodable {
     let employeeId: UUID
-    let fulleName: String
+    let fullName: String
     let phoneNumber: String?
     let emailAddress: String
     let biography: String?
@@ -22,13 +22,15 @@ struct Employee: Decodable {
     let team: String
     let employeeType: String
     
-    enum Keys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case employeeId = "uuid",
              fullName = "full_name",
              phoneNumber = "phone_number",
              emailAddress = "email_address",
              photoUrlSmall = "photo_url_small",
              photoUrlLarge = "photo_url_large",
-             employeeType = "employee_type"
+             employeeType = "employee_type",
+             team,
+             biography
     }
 }

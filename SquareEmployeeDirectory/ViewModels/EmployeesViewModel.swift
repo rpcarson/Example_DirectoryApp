@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
+enum SortType {
+    case unsorted
+    case alphabetical
+    case team
+}
+
 protocol EmployeesViewModelDelegate: AnyObject {
-    func didLoad(with error: Error?)
     func didLoad(with state: EmployeesViewModel.State)
 }
 
@@ -36,6 +41,10 @@ class EmployeesViewModel {
     }
     
     func load() async {
+        print("Began loading")
+        
+        if case .loading = state { return }
+        
         do {
             let list = try await networkService.fetch(EmployeeListRequest())
             employees = list.employees
@@ -60,10 +69,9 @@ class EmployeesViewModel {
         return UIImage()
     }
     
-}
+    func getCellConfiguration(for index: Int) -> EmployeeCellModel? {
+        guard employees.indices.contains(index) else { return nil }
+        return EmployeeCellModel(employee: employees[0])
+    }
 
-enum SortType {
-    case unsorted
-    case alphabetical
-    case team
 }
