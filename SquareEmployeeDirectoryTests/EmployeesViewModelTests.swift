@@ -24,7 +24,7 @@ class EmployeesViewModelTests: XCTestCase {
                 return false
             }
             
-            return vm.employees.count == 11
+            return vm.getNumberOfRows() == 11
         }
 
         let exp = expectation(for: predicate, evaluatedWith: employeesViewModel, handler: nil)
