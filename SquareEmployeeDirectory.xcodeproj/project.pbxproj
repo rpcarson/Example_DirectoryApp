@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B41278028352A710015E43B /* directory_InitialDiagram.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41277F28352A710015E43B /* directory_InitialDiagram.pdf */; };
+		5B412782283530CA0015E43B /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B412781283530CA0015E43B /* MockNetworkService.swift */; };
+		5B412784283532290015E43B /* SquareEmployeeDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B412783283532290015E43B /* SquareEmployeeDirectoryTests.swift */; };
 		5B9BE3582834215A0043E36A /* EmployeeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE3572834215A0043E36A /* EmployeeCellModel.swift */; };
 		5B9BE35B283422510043E36A /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE35A283422510043E36A /* EmployeeTableViewCell.swift */; };
 		5B9BE35F283445FD0043E36A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9BE35E283445FD0043E36A /* Kingfisher */; };
@@ -21,7 +23,6 @@
 		5BC5194F2832939100CCE6BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5194E2832939100CCE6BD /* SceneDelegate.swift */; };
 		5BC519562832939300CCE6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC519552832939300CCE6BD /* Assets.xcassets */; };
 		5BC519592832939300CCE6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC519572832939300CCE6BD /* LaunchScreen.storyboard */; };
-		5BC519642832939300CCE6BD /* SquareEmployeeDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC519632832939300CCE6BD /* SquareEmployeeDirectoryTests.swift */; };
 		5BC5197D283293F500CCE6BD /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5197C283293F500CCE6BD /* Employee.swift */; };
 		5BC5197F2832954A00CCE6BD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5197E2832954A00CCE6BD /* NetworkService.swift */; };
 		5BC5198128329B3000CCE6BD /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5198028329B3000CCE6BD /* EmployeesViewModel.swift */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		5B41277F28352A710015E43B /* directory_InitialDiagram.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = directory_InitialDiagram.pdf; sourceTree = "<group>"; };
+		5B412781283530CA0015E43B /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		5B412783283532290015E43B /* SquareEmployeeDirectoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareEmployeeDirectoryTests.swift; sourceTree = "<group>"; };
 		5B9BE3572834215A0043E36A /* EmployeeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCellModel.swift; sourceTree = "<group>"; };
 		5B9BE35A283422510043E36A /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		5B9BE360283457670043E36A /* ImageFetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchError.swift; sourceTree = "<group>"; };
@@ -63,7 +66,6 @@
 		5BC519582832939300CCE6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BC5195A2832939300CCE6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC5195F2832939300CCE6BD /* SquareEmployeeDirectoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareEmployeeDirectoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BC519632832939300CCE6BD /* SquareEmployeeDirectoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEmployeeDirectoryTests.swift; sourceTree = "<group>"; };
 		5BC519692832939300CCE6BD /* SquareEmployeeDirectoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareEmployeeDirectoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC5197C283293F500CCE6BD /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		5BC5197E2832954A00CCE6BD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				5B9BE36528345CE10043E36A /* MockEmployeesList.json */,
+				5B412781283530CA0015E43B /* MockNetworkService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -192,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				5B9BE36428345CCA0043E36A /* Mocks */,
-				5BC519632832939300CCE6BD /* SquareEmployeeDirectoryTests.swift */,
 				5B9BE36228345BEA0043E36A /* EmployeesViewModelTests.swift */,
+				5B412783283532290015E43B /* SquareEmployeeDirectoryTests.swift */,
 			);
 			path = SquareEmployeeDirectoryTests;
 			sourceTree = "<group>";
@@ -357,8 +360,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B412782283530CA0015E43B /* MockNetworkService.swift in Sources */,
 				5B9BE36328345BEA0043E36A /* EmployeesViewModelTests.swift in Sources */,
-				5BC519642832939300CCE6BD /* SquareEmployeeDirectoryTests.swift in Sources */,
+				5B412784283532290015E43B /* SquareEmployeeDirectoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
