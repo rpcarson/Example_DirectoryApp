@@ -29,3 +29,5 @@ Thank you for the opportunity to build this example app for you. I really enjoye
 
 Ive included the initial design for the app I created in LucidChart. It changed over the course of building out the app but it helped serve as the initial foundation for how I wanted to lay out it. I know its a simple one screen tableview app but I find this sort of thinking helpful anyway, and also fun.
 
+![flowchart](/../master/directory_flowchart.png?raw=true "Architecture")
+
