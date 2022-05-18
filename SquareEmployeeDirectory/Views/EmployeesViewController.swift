@@ -54,7 +54,7 @@ class EmployeesViewController: UIViewController {
 
 extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.employees.count
+        return viewModel.getNumberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,13 +85,6 @@ extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension EmployeesViewController: EmployeesViewModelDelegate {
     func didLoad(with state: EmployeesViewModel.VMState) {
-        switch state {
-        case .loadedError(let error):
-            print("Error: \(error.localizedDescription)")
-        default:
-            print("state \(state)")
-        }
-        
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()

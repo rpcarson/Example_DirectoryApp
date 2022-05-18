@@ -39,17 +39,23 @@ class EmployeeTableViewCell: UITableViewCell {
     
     private var photoImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private var labelContainerView: UIView = {
        let view = UIView()
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        view.layer.cornerRadius = Constants.cornerRadius
+        view.backgroundColor = .lightGray.withAlphaComponent(0.15)
+        view.layer.cornerRadius = Constants.EmployeesCell.cornerRadius
         return view
     }()
     
-    private var photoContainerView = UIView()
+    private var photoContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .darkGray.withAlphaComponent(0.25)
+        view.layer.cornerRadius = Constants.EmployeesCell.cornerRadius
+        return view
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -62,8 +68,6 @@ class EmployeeTableViewCell: UITableViewCell {
     private func addViews() {
         addSubview(photoContainerView)
         addSubview(labelContainerView)
-        
-        photoContainerView.backgroundColor = .blue
         labelContainerView.addSubview(nameLabel)
         labelContainerView.addSubview(teamLabel)
         labelContainerView.addSubview(phoneLabel)
@@ -72,46 +76,47 @@ class EmployeeTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
+        let padding = Constants.EmployeesCell.padding
+        
         labelContainerView.snp.makeConstraints { make in
-            make.leading.top.equalTo(self).offset(Constants.padding)
-            make.bottom.equalTo(self).offset(-Constants.padding)
+            make.leading.top.equalTo(self).offset(padding)
+            make.bottom.equalTo(self).offset(-padding)
             make.trailing.equalTo(self).multipliedBy(0.5)
         }
         
         photoContainerView.snp.makeConstraints { make in
-            make.leading.equalTo(labelContainerView.snp.trailing).offset(Constants.padding)
-            make.top.equalTo(self).offset(Constants.padding)
-            make.trailing.bottom.equalTo(self).offset(-Constants.padding)
+            make.leading.equalTo(labelContainerView.snp.trailing).offset(padding)
+            make.top.equalTo(self).offset(padding)
+            make.trailing.bottom.equalTo(self).offset(-padding)
         }
         
         photoImageView.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(Constants.padding)
-            make.trailing.equalTo(self).offset(-Constants.padding)
-            make.bottom.equalTo(self).offset(-Constants.padding)
-            make.height.equalTo(photoImageView.snp.width)
+            make.top.equalTo(photoContainerView).offset(padding)
+            make.trailing.equalTo(photoContainerView).offset(-padding)
+            make.bottom.equalTo(photoContainerView).offset(-padding)
             make.centerX.equalTo(photoContainerView.snp.centerX)
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.leading.top.equalTo(labelContainerView).offset(Constants.padding)
+            make.leading.top.equalTo(labelContainerView).offset(padding)
             make.trailing.equalTo(labelContainerView)
         }
         
         teamLabel.snp.makeConstraints { make in
-            make.leading.equalTo(labelContainerView).offset(Constants.padding)
+            make.leading.equalTo(labelContainerView).offset(padding)
             make.trailing.equalTo(labelContainerView)
-            make.top.equalTo(nameLabel.snp.bottom).offset(Constants.padding)
+            make.top.equalTo(nameLabel.snp.bottom).offset(padding)
         }
         
         phoneLabel.snp.makeConstraints { make in
-            make.top.equalTo(teamLabel.snp.bottom).offset(Constants.padding)
-            make.leading.equalTo(labelContainerView).offset(Constants.padding)
+            make.top.equalTo(teamLabel.snp.bottom).offset(padding)
+            make.leading.equalTo(labelContainerView).offset(padding)
         }
         
         emailLabel.snp.makeConstraints { make in
-            make.top.equalTo(phoneLabel.snp.bottom).offset(Constants.padding)
-            make.leading.equalTo(labelContainerView).offset(Constants.padding)
-            make.trailing.equalTo(labelContainerView).offset(-Constants.padding)
+            make.top.equalTo(phoneLabel.snp.bottom).offset(padding)
+            make.leading.equalTo(labelContainerView).offset(padding)
+            make.trailing.equalTo(labelContainerView).offset(-padding)
         }
     }
     
@@ -125,11 +130,5 @@ class EmployeeTableViewCell: UITableViewCell {
     
     func setImage(_ image: UIImage?) {
         photoImageView.image = image
-    }
-    
-    struct Constants {
-        static let photoHeight = 50
-        static let padding: CGFloat = 5
-        static let cornerRadius: CGFloat = 5
     }
 }

@@ -27,16 +27,15 @@ class EmployeesViewModel {
         case notLoaded
     }
     
-    var employees: [Employee] = []
     weak var delegate: EmployeesViewModelDelegate?
     
+    private var employees: [Employee] = []
     private var networkService: NetworkService
     private var state: VMState = .notLoaded
     private var sortType: SortType = .team
     
     init(networkService: NetworkService) {
         self.networkService = networkService
-        
         Task { await load() }
     }
     
@@ -58,9 +57,7 @@ class EmployeesViewModel {
         switch state {
         case .loadedSuccess:
             return employees.count
-        case .loadedEmpty:
-            return 1
-        case .loadedError:
+        case .loadedEmpty, .loadedError:
             return 1
         default:
             return 0
@@ -76,17 +73,14 @@ class EmployeesViewModel {
             }
             
             getImage(for: employees[index]) { completion($0) }
-        case .loadedError:
-            break
-            // could load an image for an error cell
-        case .loadedEmpty:
-            break
-            // load an empty placeholder image
+        case .loadedError: break
+        case .loadedEmpty: break
         default: break
         }
     }
     
-    func getImage(for employee: Employee, completion: @escaping ((Result<(UIImage, String), ImageFetchError>) -> Void)) {
+    func getImage(for employee: Employee,
+                  completion: @escaping ((Result<(UIImage, String), ImageFetchError>) -> Void)) {
         let cacheId = employee.idString
         
         guard let urlString = employee.photoUrlSmall,
@@ -110,7 +104,9 @@ class EmployeesViewModel {
         }
     }
     
-    private func getImageForUrl(_ url: URL, employeeId: String, completion: @escaping ((Result<(UIImage, String), ImageFetchError>) -> Void)) {
+    private func getImageForUrl(_ url: URL,
+                                employeeId: String,
+                                completion: @escaping ((Result<(UIImage, String), ImageFetchError>) -> Void)) {
         let resource = ImageResource(downloadURL: url, cacheKey: employeeId)
         KingfisherManager.shared.retrieveImage(with: resource, options: nil,
                                                progressBlock: nil,
@@ -129,12 +125,8 @@ class EmployeesViewModel {
         case .loadedSuccess:
             guard employees.indices.contains(index) else { return nil }
             return EmployeeCellModel(employee: employees[index])
-        case .loadedError:
-            return nil
-            // configure an error cell
-        case .loadedEmpty:
-            return nil
-            // configure a placeholder cell
+        case .loadedError: return nil
+        case .loadedEmpty: return nil
         default: return nil
         }
     }
