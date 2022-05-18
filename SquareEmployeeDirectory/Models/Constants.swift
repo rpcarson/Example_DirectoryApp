@@ -9,7 +9,6 @@ import UIKit
 
 struct Constants {
     struct EmployeesCell {
-        static let photoHeight = 50
         static let padding: CGFloat = 5
         static let cornerRadius: CGFloat = 5
     }
