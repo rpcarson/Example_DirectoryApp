@@ -49,6 +49,8 @@ class EmployeeTableViewCell: UITableViewCell {
         return view
     }()
     
+    private var photoContainerView = UIView()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addViews()
@@ -58,7 +60,10 @@ class EmployeeTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func addViews() {
+        addSubview(photoContainerView)
         addSubview(labelContainerView)
+        
+        photoContainerView.backgroundColor = .blue
         labelContainerView.addSubview(nameLabel)
         labelContainerView.addSubview(teamLabel)
         labelContainerView.addSubview(phoneLabel)
@@ -71,14 +76,20 @@ class EmployeeTableViewCell: UITableViewCell {
             make.leading.top.equalTo(self).offset(Constants.padding)
             make.bottom.equalTo(self).offset(-Constants.padding)
             make.trailing.equalTo(self).multipliedBy(0.5)
-            make.height.equalTo(120)
+        }
+        
+        photoContainerView.snp.makeConstraints { make in
+            make.leading.equalTo(labelContainerView.snp.trailing).offset(Constants.padding)
+            make.top.equalTo(self).offset(Constants.padding)
+            make.trailing.bottom.equalTo(self).offset(-Constants.padding)
         }
         
         photoImageView.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(-Constants.padding)
+            make.top.equalTo(self).offset(Constants.padding)
             make.trailing.equalTo(self).offset(-Constants.padding)
-            make.height.equalTo(Constants.photoHeight)
-            make.width.equalTo(photoImageView.snp.height)
+            make.bottom.equalTo(self).offset(-Constants.padding)
+            make.height.equalTo(photoImageView.snp.width)
+            make.centerX.equalTo(photoContainerView.snp.centerX)
         }
         
         nameLabel.snp.makeConstraints { make in
@@ -112,8 +123,12 @@ class EmployeeTableViewCell: UITableViewCell {
         biographyLabel.text = model.biography
     }
     
+    func setImage(_ image: UIImage?) {
+        photoImageView.image = image
+    }
+    
     struct Constants {
-        static let photoHeight = 15
+        static let photoHeight = 50
         static let padding: CGFloat = 5
         static let cornerRadius: CGFloat = 5
     }

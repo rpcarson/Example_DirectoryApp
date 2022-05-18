@@ -5,8 +5,8 @@
 //  Created by Reed Carson on 5/16/22.
 //
 
-import Foundation
 import UIKit
+import Kingfisher
 
 enum SortType {
     case unsorted
@@ -15,11 +15,11 @@ enum SortType {
 }
 
 protocol EmployeesViewModelDelegate: AnyObject {
-    func didLoad(with state: EmployeesViewModel.State)
+    func didLoad(with state: EmployeesViewModel.VMState)
 }
 
 class EmployeesViewModel {
-    enum State {
+    enum VMState {
         case loadedSuccess
         case loadedError(Error)
         case loadedEmpty
@@ -31,8 +31,8 @@ class EmployeesViewModel {
     weak var delegate: EmployeesViewModelDelegate?
     
     private var networkService: NetworkService
-    // private var cachingService: CachingService
-    private var state: State = .notLoaded
+    private var state: VMState = .notLoaded
+    private var sortType: SortType = .team
     
     init(networkService: NetworkService) {
         self.networkService = networkService
@@ -41,13 +41,11 @@ class EmployeesViewModel {
     }
     
     func load() async {
-        print("Began loading")
-        
         if case .loading = state { return }
         
         do {
             let list = try await networkService.fetch(EmployeeListRequest())
-            employees = list.employees
+            employees = sort(list.employees)
             state = employees.isEmpty ? .loadedEmpty : .loadedSuccess
         } catch {
             state = .loadedError(error)
@@ -55,23 +53,105 @@ class EmployeesViewModel {
         
         delegate?.didLoad(with: state)
     }
-    
-    func getEmployess(sort: SortType = .unsorted) -> [Employee] {
-        switch sort {
-        case .unsorted:
-            return employees
+
+    func getNumberOfRows() -> Int {
+        switch state {
+        case .loadedSuccess:
+            return employees.count
+        case .loadedEmpty:
+            return 1
+        case .loadedError:
+            return 1
         default:
-            return employees
+            return 0
         }
     }
     
-    func getImage(for id: UUID) async -> UIImage {
-        return UIImage()
+    func getImage(for index: Int, completion: @escaping ((Result<(UIImage, String), ImageFetchError>) -> Void)) {
+        switch state {
+        case .loadedSuccess:
+            guard employees.indices.contains(index) else {
+                completion(.failure(.noEmployeeFound(index: index)))
+                return
+            }
+            
+            getImage(for: employees[index]) { completion($0) }
+        case .loadedError:
+            break
+            // could load an image for an error cell
+        case .loadedEmpty:
+            break
+            // load an empty placeholder image
+        default: break
+        }
+    }
+    
+    func getImage(for employee: Employee, completion: @escaping ((Result<(UIImage, String), ImageFetchError>) -> Void)) {
+        let cacheId = employee.idString
+        
+        guard let urlString = employee.photoUrlSmall,
+              let url = URL(string: urlString) else {
+                  completion(.failure(.missingImageUrlForEmployee(id: employee.idString)))
+                  return
+              }
+        
+        if ImageCache.default.isCached(forKey: cacheId) {
+            ImageCache.default.retrieveImage(forKey: cacheId) {
+                if let image = try? $0.get().image {
+                    completion(.success((image, employee.idString)))
+                } else {
+                    completion(.failure(.couldNotGetCachedImaged(id: cacheId)))
+                }
+            }
+        } else {
+            getImageForUrl(url, employeeId: employee.idString) {
+                completion($0)
+            }
+        }
+    }
+    
+    private func getImageForUrl(_ url: URL, employeeId: String, completion: @escaping ((Result<(UIImage, String), ImageFetchError>) -> Void)) {
+        let resource = ImageResource(downloadURL: url, cacheKey: employeeId)
+        KingfisherManager.shared.retrieveImage(with: resource, options: nil,
+                                               progressBlock: nil,
+                                               downloadTaskUpdated: nil) { result in
+            switch result {
+            case .success(let imageResult):
+                completion(.success((imageResult.image, employeeId)))
+            case .failure:
+                completion(.failure(.couldNotRetriveImageAtUrl(url: url.absoluteString)))
+            }
+        }
     }
     
     func getCellConfiguration(for index: Int) -> EmployeeCellModel? {
-        guard employees.indices.contains(index) else { return nil }
-        return EmployeeCellModel(employee: employees[0])
+        switch state {
+        case .loadedSuccess:
+            guard employees.indices.contains(index) else { return nil }
+            return EmployeeCellModel(employee: employees[index])
+        case .loadedError:
+            return nil
+            // configure an error cell
+        case .loadedEmpty:
+            return nil
+            // configure a placeholder cell
+        default: return nil
+        }
     }
-
+    
+    func employeeForIndex(_ index: Int) -> Employee? {
+        guard employees.indices.contains(index) else { return nil }
+        return employees[index]
+    }
+    
+    private func sort(_ employees: [Employee]) -> [Employee] {
+        switch sortType {
+        case .unsorted:
+            return employees
+        case .alphabetical:
+            return employees.sorted(by: { $0.fullName < $1.fullName })
+        case .team:
+            return employees.sorted(by: { $0.team < $1.team })
+        }
+    }
 }

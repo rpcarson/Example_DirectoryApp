@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class EmployeesViewController: UIViewController {
     private lazy var tableView: UITableView = {
@@ -37,9 +38,6 @@ class EmployeesViewController: UIViewController {
     }
     
     private func setupSelf() {
-        view.backgroundColor = .green
-        tableView.backgroundColor = .red
-        
         view.addSubview(tableView)
         tableView.addSubview(refreshControl)
         tableView.register(EmployeeTableViewCell.self, forCellReuseIdentifier: EmployeeTableViewCell.reuseIdentifier)
@@ -52,7 +50,6 @@ class EmployeesViewController: UIViewController {
     @objc private func refresh() {
         Task { await viewModel.load() }
     }
-    
 }
 
 extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,20 +67,29 @@ extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configure(with: model)
         }
         
-        
+        viewModel.getImage(for: indexPath.row) { result in
+            switch result {
+            case .success((let image, let id)):
+                if id == self.viewModel.employeeForIndex(indexPath.row)?.idString {
+                    cell.setImage(image)
+                }
+            case .failure(let error):
+                print(error)
+                /// in case of failure here, we would load a placeholder image and log the error. the user probably does not need to receive feedback of any kind when the image fails to load - simply loading a placeholder that indiciates a missing image would be helpful, so that the users activity is not interupted and they can continue using the app
+            }
+        }
 
         return cell
     }
 }
 
 extension EmployeesViewController: EmployeesViewModelDelegate {
-    func didLoad(with state: EmployeesViewModel.State) {
+    func didLoad(with state: EmployeesViewModel.VMState) {
         switch state {
         case .loadedError(let error):
             print("Error: \(error.localizedDescription)")
         default:
             print("state \(state)")
-            
         }
         
         DispatchQueue.main.async {

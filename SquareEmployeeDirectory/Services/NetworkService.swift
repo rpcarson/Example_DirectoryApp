@@ -7,29 +7,8 @@
 
 import Foundation
 
-protocol AnyRequest {
-    associatedtype Model: Decodable
-    var url: String { get set }
-}
-
 protocol NetworkService: AnyObject {
     func fetch<R: AnyRequest>(_ request: R) async throws -> R.Model
-}
-
-enum NetworkError: LocalizedError {
-    case invalidUrl
-    
-    var errorDescription: String? {
-        switch self {
-        case .invalidUrl:
-            return "Invalid Url"
-        }
-    }
-}
-
-struct EmployeeListRequest: AnyRequest {
-    typealias Model = EmployeeList
-    var url: String = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
 }
 
 class EmployeesNetworkService: NetworkService {

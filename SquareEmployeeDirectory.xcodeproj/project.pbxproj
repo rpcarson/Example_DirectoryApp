@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B41278028352A710015E43B /* directory_InitialDiagram.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41277F28352A710015E43B /* directory_InitialDiagram.pdf */; };
 		5B9BE3582834215A0043E36A /* EmployeeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE3572834215A0043E36A /* EmployeeCellModel.swift */; };
 		5B9BE35B283422510043E36A /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE35A283422510043E36A /* EmployeeTableViewCell.swift */; };
+		5B9BE35F283445FD0043E36A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9BE35E283445FD0043E36A /* Kingfisher */; };
+		5B9BE361283457670043E36A /* ImageFetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE360283457670043E36A /* ImageFetchError.swift */; };
+		5B9BE36328345BEA0043E36A /* EmployeesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE36228345BEA0043E36A /* EmployeesViewModelTests.swift */; };
+		5B9BE36628345CE10043E36A /* MockEmployeesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B9BE36528345CE10043E36A /* MockEmployeesList.json */; };
+		5B9BE36928345D7D0043E36A /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE36828345D7D0043E36A /* Requests.swift */; };
+		5B9BE36B28345DA50043E36A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE36A28345DA50043E36A /* NetworkError.swift */; };
+		5B9BE36D283462450043E36A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5B9BE36C283462450043E36A /* README.md */; };
 		5BC5194D2832939100CCE6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5194C2832939100CCE6BD /* AppDelegate.swift */; };
 		5BC5194F2832939100CCE6BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5194E2832939100CCE6BD /* SceneDelegate.swift */; };
 		5BC519562832939300CCE6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC519552832939300CCE6BD /* Assets.xcassets */; };
 		5BC519592832939300CCE6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC519572832939300CCE6BD /* LaunchScreen.storyboard */; };
 		5BC519642832939300CCE6BD /* SquareEmployeeDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC519632832939300CCE6BD /* SquareEmployeeDirectoryTests.swift */; };
-		5BC5196E2832939300CCE6BD /* SquareEmployeeDirectoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5196D2832939300CCE6BD /* SquareEmployeeDirectoryUITests.swift */; };
-		5BC519702832939300CCE6BD /* SquareEmployeeDirectoryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5196F2832939300CCE6BD /* SquareEmployeeDirectoryUITestsLaunchTests.swift */; };
 		5BC5197D283293F500CCE6BD /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5197C283293F500CCE6BD /* Employee.swift */; };
 		5BC5197F2832954A00CCE6BD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5197E2832954A00CCE6BD /* NetworkService.swift */; };
 		5BC5198128329B3000CCE6BD /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5198028329B3000CCE6BD /* EmployeesViewModel.swift */; };
@@ -41,8 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B41277F28352A710015E43B /* directory_InitialDiagram.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = directory_InitialDiagram.pdf; sourceTree = "<group>"; };
 		5B9BE3572834215A0043E36A /* EmployeeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCellModel.swift; sourceTree = "<group>"; };
 		5B9BE35A283422510043E36A /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		5B9BE360283457670043E36A /* ImageFetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchError.swift; sourceTree = "<group>"; };
+		5B9BE36228345BEA0043E36A /* EmployeesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModelTests.swift; sourceTree = "<group>"; };
+		5B9BE36528345CE10043E36A /* MockEmployeesList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockEmployeesList.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		5B9BE36828345D7D0043E36A /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		5B9BE36A28345DA50043E36A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		5B9BE36C283462450043E36A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5BC519492832939100CCE6BD /* SquareEmployeeDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquareEmployeeDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC5194C2832939100CCE6BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC5194E2832939100CCE6BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,8 +65,6 @@
 		5BC5195F2832939300CCE6BD /* SquareEmployeeDirectoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareEmployeeDirectoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC519632832939300CCE6BD /* SquareEmployeeDirectoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEmployeeDirectoryTests.swift; sourceTree = "<group>"; };
 		5BC519692832939300CCE6BD /* SquareEmployeeDirectoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareEmployeeDirectoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BC5196D2832939300CCE6BD /* SquareEmployeeDirectoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEmployeeDirectoryUITests.swift; sourceTree = "<group>"; };
-		5BC5196F2832939300CCE6BD /* SquareEmployeeDirectoryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEmployeeDirectoryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5BC5197C283293F500CCE6BD /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		5BC5197E2832954A00CCE6BD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5BC5198028329B3000CCE6BD /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
@@ -65,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9BE35F283445FD0043E36A /* Kingfisher in Frameworks */,
 				5BC519862832C52C00CCE6BD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +103,8 @@
 			children = (
 				5BC5197C283293F500CCE6BD /* Employee.swift */,
 				5B9BE3572834215A0043E36A /* EmployeeCellModel.swift */,
+				5B9BE360283457670043E36A /* ImageFetchError.swift */,
+				5B9BE36A28345DA50043E36A /* NetworkError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,17 +129,35 @@
 		5B9BE35C283422950043E36A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5B9BE36728345D700043E36A /* Requests */,
 				5BC5197E2832954A00CCE6BD /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
+		5B9BE36428345CCA0043E36A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5B9BE36528345CE10043E36A /* MockEmployeesList.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		5B9BE36728345D700043E36A /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				5B9BE36828345D7D0043E36A /* Requests.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		5BC519402832939100CCE6BD = {
 			isa = PBXGroup;
 			children = (
+				5B41277F28352A710015E43B /* directory_InitialDiagram.pdf */,
+				5B9BE36C283462450043E36A /* README.md */,
 				5BC5194B2832939100CCE6BD /* SquareEmployeeDirectory */,
 				5BC519622832939300CCE6BD /* SquareEmployeeDirectoryTests */,
-				5BC5196C2832939300CCE6BD /* SquareEmployeeDirectoryUITests */,
 				5BC5194A2832939100CCE6BD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,18 +191,11 @@
 		5BC519622832939300CCE6BD /* SquareEmployeeDirectoryTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B9BE36428345CCA0043E36A /* Mocks */,
 				5BC519632832939300CCE6BD /* SquareEmployeeDirectoryTests.swift */,
+				5B9BE36228345BEA0043E36A /* EmployeesViewModelTests.swift */,
 			);
 			path = SquareEmployeeDirectoryTests;
-			sourceTree = "<group>";
-		};
-		5BC5196C2832939300CCE6BD /* SquareEmployeeDirectoryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5BC5196D2832939300CCE6BD /* SquareEmployeeDirectoryUITests.swift */,
-				5BC5196F2832939300CCE6BD /* SquareEmployeeDirectoryUITestsLaunchTests.swift */,
-			);
-			path = SquareEmployeeDirectoryUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +216,7 @@
 			name = SquareEmployeeDirectory;
 			packageProductDependencies = (
 				5BC519852832C52C00CCE6BD /* SnapKit */,
+				5B9BE35E283445FD0043E36A /* Kingfisher */,
 			);
 			productName = SquareEmployeeDirectory;
 			productReference = 5BC519492832939100CCE6BD /* SquareEmployeeDirectory.app */;
@@ -266,6 +292,7 @@
 			mainGroup = 5BC519402832939100CCE6BD;
 			packageReferences = (
 				5BC519842832C52C00CCE6BD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				5B9BE35D283445FD0043E36A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 5BC5194A2832939100CCE6BD /* Products */;
 			projectDirPath = "";
@@ -283,8 +310,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9BE36D283462450043E36A /* README.md in Resources */,
 				5BC519592832939300CCE6BD /* LaunchScreen.storyboard in Resources */,
 				5BC519562832939300CCE6BD /* Assets.xcassets in Resources */,
+				5B41278028352A710015E43B /* directory_InitialDiagram.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9BE36628345CE10043E36A /* MockEmployeesList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,10 +342,13 @@
 				5BC5197F2832954A00CCE6BD /* NetworkService.swift in Sources */,
 				5BC5198128329B3000CCE6BD /* EmployeesViewModel.swift in Sources */,
 				5B9BE3582834215A0043E36A /* EmployeeCellModel.swift in Sources */,
+				5B9BE36928345D7D0043E36A /* Requests.swift in Sources */,
 				5BC5197D283293F500CCE6BD /* Employee.swift in Sources */,
 				5B9BE35B283422510043E36A /* EmployeeTableViewCell.swift in Sources */,
 				5BC519832832C31B00CCE6BD /* EmployeesViewController.swift in Sources */,
 				5BC5194D2832939100CCE6BD /* AppDelegate.swift in Sources */,
+				5B9BE361283457670043E36A /* ImageFetchError.swift in Sources */,
+				5B9BE36B28345DA50043E36A /* NetworkError.swift in Sources */,
 				5BC5194F2832939100CCE6BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9BE36328345BEA0043E36A /* EmployeesViewModelTests.swift in Sources */,
 				5BC519642832939300CCE6BD /* SquareEmployeeDirectoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,8 +366,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC5196E2832939300CCE6BD /* SquareEmployeeDirectoryUITests.swift in Sources */,
-				5BC519702832939300CCE6BD /* SquareEmployeeDirectoryUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +684,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5B9BE35D283445FD0043E36A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		5BC519842832C52C00CCE6BD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -663,6 +703,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5B9BE35E283445FD0043E36A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B9BE35D283445FD0043E36A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		5BC519852832C52C00CCE6BD /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5BC519842832C52C00CCE6BD /* XCRemoteSwiftPackageReference "SnapKit" */;

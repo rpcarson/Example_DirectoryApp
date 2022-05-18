@@ -34,3 +34,7 @@ struct Employee: Decodable {
              biography
     }
 }
+
+extension Employee {
+    var idString: String { employeeId.uuidString }
+}
